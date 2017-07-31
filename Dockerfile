@@ -21,3 +21,5 @@ RUN apt-get update -qq && \
     curl -LO "https://storage.googleapis.com/kubernetes-release/release/v$KUBECTL_VERSION/bin/linux/amd64/kubectl" && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
+
+ADD helpers/add-git-commit-to-package-json /usr/local/bin/add-git-commit-to-package-json

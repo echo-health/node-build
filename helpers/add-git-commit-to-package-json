@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+const packageJsonPath = path.resolve(process.cwd(), 'package.json');
+const packageJson = require(packageJsonPath);
+
+packageJson.git_commit = process.argv[2];
+fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, '  '));
