@@ -12,7 +12,7 @@ RUN apt-get update -qq && \
     wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo 'deb https://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list.d/google-chrome.list && \
     apt-get update -qq && \
-    apt-get install -qy google-chrome-stable google-cloud-sdk && \
+    apt-get install -qy google-chrome-stable google-cloud-sdk jq && \
     rm /etc/apt/sources.list.d/* && \
     curl -L -o "/tmp/docker-$DOCKER_VERSION.tgz" "https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz" && \
     tar -xz -C /tmp -f /tmp/docker-$DOCKER_VERSION.tgz && \
@@ -21,3 +21,5 @@ RUN apt-get update -qq && \
     curl -LO "https://storage.googleapis.com/kubernetes-release/release/v$KUBECTL_VERSION/bin/linux/amd64/kubectl" && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
+
+ADD helpers/add-git-commit-to-package-json /usr/local/bin/add-git-commit-to-package-json
