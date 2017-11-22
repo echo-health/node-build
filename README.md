@@ -2,7 +2,7 @@
 
 A Docker image for building Node.js projects on CircleCI. Include the following:
 
-* Node 8.1.0
+* Node 8.9.1
 * Docker
 * gcloud
 * kubectl
